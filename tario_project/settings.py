@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-3#23tsf_mfcg1i60e0if4nu-&76052why%s3x*+ghykbbr&xk%
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -52,6 +52,8 @@ TENANT_APPS = [
     'tario_users',
  
 ]
+PUBLIC_SCHEMA_NAME = 'public'
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
