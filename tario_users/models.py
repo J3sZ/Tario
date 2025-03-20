@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
   
 
     # Relación con el inquilino (tenant)
-    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name='users')
+    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name='users', null=True, blank=True)
 
     def __str__(self):
         return self.username

@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'tario_users',
     #3rd party
     'django_tenants',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 SHARED_APPS = [
@@ -42,6 +45,14 @@ SHARED_APPS = [
     'tario_users',
  
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 TENANT_APPS = [
     'django.contrib.contenttypes',
@@ -131,7 +142,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, '/static/')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
