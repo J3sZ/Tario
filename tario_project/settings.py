@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-3#23tsf_mfcg1i60e0if4nu-&76052why%s3x*+ghykbbr&xk%
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'tario_users',
     #3rd party
     'django_tenants',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 SHARED_APPS = [
@@ -43,6 +46,14 @@ SHARED_APPS = [
  
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 TENANT_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.auth',
@@ -52,6 +63,8 @@ TENANT_APPS = [
     'tario_users',
  
 ]
+PUBLIC_SCHEMA_NAME = 'public'
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
@@ -129,7 +142,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, '/static/')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
