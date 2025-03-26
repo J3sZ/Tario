@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Agregar Item</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" required>
+    <br>
+    <label for="quantity">Cantidad:</label>
+    <input type="number" name="quantity" required>
+    <br>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

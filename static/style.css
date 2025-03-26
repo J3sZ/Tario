@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+}
+
+header {
+    background-color:white;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Estilos de la barra de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto; /* Empuja el título a la izquierda */
+    color: red;
+}
+
+nav ul li a {
+    color:white;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para pantallas pequeñas (menos de 600px) */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Añade espacio entre los elementos apilados */
+    }
+
+    nav ul li.title {
+        margin-bottom: 20px; /* Añade más espacio debajo del título */
+    }
+}
+
+div.tario_banner{
+    background-color: black;
+
+}
+div.tario_banner h1{
+    color : white;
+}
+div.tario_banner p{
+    color:white;
+}
