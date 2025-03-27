@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block title %}Inicio{% endblock %}
 
 {% block content %}
+<div class="welcome-section">
+    {% if user.is_authenticated %}
+        <h1>Bienvenido, {{ user.username }}!</h1>
+        <p>Gestiona tu inventario desde <a href="{% url 'inventory:list' %}">aquí</a>.</p>
+    {% else %}
+        <h1>Bienvenido a Mi Proyecto</h1>
+        <p>Por favor <a href="{% url 'login' %}">inicia sesión</a> o <a href="{% url 'register' %}">regístrate</a>.</p>
+    {% endif %}
+</div>
 
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni dignissimos dicta nulla accusantium ullam molestiae sint at quam accusamus hic esse id temporibus obcaecati perferendis, qui voluptate enim inventore dolores.</h1>
-
-{% endblock content %}
+<div class="features">
+    <h2>Características</h2>
+    <ul>
+        <li>✔ Gestión de inventario multiinquilino</li>
+        <li>✔ Registro y autenticación segura</li>
+        <li>✔ Panel de administración personalizado</li>
+    </ul>
+</div>
+{% endblock %}

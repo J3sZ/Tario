@@ -6,15 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tario</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
     <header>
-        <h1>barra de tarea</h1>
-        <ul>
-            <li><a href="">Tario</a></li>
-            <li></li>
-        </ul>
+        <nav>
+            <a href="{% url 'public:home' %}">Inicio</a>
+            {% if user.is_authenticated %}
+                <form action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button  type="submit">cerrar sesion</button>
+                </form>
+                <span>Hola, {{ user.username }}!</span>
+            {% else %}
+                <a href="{% url 'users:login' %}">Iniciar Sesión</a>
+                <a href="{% url 'users:register' %}">Registrarse</a>
+            {% endif %}
+        </nav>
     </header>
     {% block content %}
 

@@ -7,5 +7,5 @@
         <li>{{ item.name }} - Cantidad: {{ item.quantity }}</li>
     {% endfor %}
 </ul>
-<a href="{% url 'add_item' %}">Agregar nuevo item</a>
+<a href="{% url 'inventory:add' %}">Agregar nuevo item</a>
 {% endblock %}

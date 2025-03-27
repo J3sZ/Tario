@@ -1,8 +1,11 @@
 # inventario/urls.py
 from django.urls import path
-from .views import add_item, lista_items
+from .views import AddItemView, ItemListView
+
+
+app_name = 'inventory'
 
 urlpatterns = [
-    path('add/', add_item, name='add_item'),
-    path('list/', lista_items, name='lista_items'),
+    path('add/', AddItemView.as_view(), name='add'),
+    path('list/', ItemListView.as_view(), name='list'),
 ]
